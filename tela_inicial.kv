@@ -1,0 +1,23 @@
+#: include tela2.kv
+
+#: import Menu tela2.Menu
+
+Gerenciador:
+    # Simulador_loja.py / tela_inicial.kv
+    Menu_Principal:
+    # tela2.kv/py
+    Menu:
+
+<Menu_Principal>:
+    name: 'Menu_Principal'
+    GridLayout:
+        # top to bottom, left to right ( de cima para baixo, esquerda para a direita )
+        cols: 1
+        MDTopAppBar:
+            title: 'Lojinha'
+            anchor_title: 'center'
+            left_action_items: [["magnify", lambda x: print("lupa :D")]]
+        Button:
+            text: 'mover'
+            on_release: root.mudar_tela()
+
