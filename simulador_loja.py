@@ -5,13 +5,34 @@ from kivy.core.window import Window
 from kivy.properties import StringProperty
 from kivymd.uix.behaviors import RoundedRectangularElevationBehavior
 from kivymd.uix.card import MDCard
+from kivy.clock import Clock
 
-Window.size = (400, 800) 
 
 class Gerenciador(ScreenManager):
     pass
 
 class Menu_Principal(Screen):
+    def __init__(self, **kwargs):
+        super(Menu_Principal, self).__init__(**kwargs)
+        Clock.schedule_once(self.test)
+
+    def test(self, dt):
+        styles = {
+                "elevated":"#f6eeee",
+                "outlined":"#f4dedc",
+                "filled":"#f4dedc",
+        }
+
+        for style in styles.keys():
+            self.ids.box.add_widget(  
+                MD3Card(
+                    line_color=(0.2, 0.2, 0.2, 0.8),
+                    style=style,
+                    text=style.capitalize(),
+                    md_bg_color=styles[style],
+                )
+            )
+
     def mudar_tela(self):
         self.parent.transition.direction = 'left'
         self.parent.current = "tela2"
@@ -28,19 +49,5 @@ class Simulador_loja(App):
         return kv
     pass
     
-    def on_start(self):
-        styles = {
-                "Esponja":"#f6eeee", "image":"./images/cards/esponja.jpg" , "Cubo":"#f4dedc", "image":"./images/cards/cubo_magico.png"
-        }
-        for style in styles.keys():
-            self.root.ids.gridlayout.box.add_widget(  
-                MD3Card(
-                    line_color=(0.2, 0.2, 0.2, 0.2, 0.8),
-                    style=style,
-                    text=style.capitalize(),
-                    md_bg_color=styles[style],
-                )
-            )
-
 if __name__ == "__main__":
     Simulador_loja().run()
