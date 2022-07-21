@@ -1,9 +1,10 @@
 #: include tela2.kv
 #: include ./produto/product_screen.kv
-
+#: include ./info_login/login.kv
 
 #: import Menu tela2.Menu
 #: import ProductInfo produto.product_screen.ProductInfo
+#: import Login info_login.login.Login
 
 Gerenciador:
 
@@ -16,10 +17,16 @@ Gerenciador:
     # product_screen.py
     ProductInfo:
 
+    # login.py/kv    
+    Login:
+
 <Menu_Principal>:
     name: 'Menu_Principal'
     GridLayout:
         cols: 1
+
+        Button: #test acess login
+            on_release:root.open_login
 
         MDTopAppBar:
             title: 'Lojinha'

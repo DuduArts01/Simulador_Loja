@@ -16,6 +16,9 @@ class Menu_Principal(Screen):
         super(Menu_Principal, self).__init__(**kwargs)
         Clock.schedule_once(self.gen_cards)
 
+    def open_login(self):  #test acess login
+        self.parent.current = "Login"
+
     def gen_cards(self, dt):
         default_bg_color = "#cccccc"
         propriedades = {
