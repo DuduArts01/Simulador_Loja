@@ -17,19 +17,17 @@ class Menu_Principal(Screen):
         Clock.schedule_once(self.test)
 
     def test(self, dt):
-        styles = {
-                "elevated":"#f6eeee",
-                "outlined":"#f4dedc",
-                "filled":"#f4dedc",
-        }
-
-        for style in styles.keys():
-            self.ids.box.add_widget(  
+        default_bg_color = "#cccccc"
+        propriedades = {
+                "ncards": 10
+                }
+        for i in range(propriedades["ncards"]):
+            self.ids.cards.add_widget(  
                 MD3Card(
-                    line_color=(0.2, 0.2, 0.2, 0.8),
-                    style=style,
-                    text=style.capitalize(),
-                    md_bg_color=styles[style],
+                    line_color = (0.2, 0.2, 0.2, 0.8),
+                    style = "elevated",
+                    text = "aaaa",
+                    md_bg_color = default_bg_color,
                 )
             )
 
