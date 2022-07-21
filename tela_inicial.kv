@@ -1,20 +1,31 @@
 #: include tela2.kv
+#: include ./produto/product_screen.kv
+
+
 #: import Menu tela2.Menu
+#: import ProductInfo produto.product_screen.ProductInfo
 
 Gerenciador:
+
     # Simulador_loja.py / tela_inicial.kv
     Menu_Principal:
+
     # tela2.kv/py
     Menu:
+
+    # product_screen.py
+    ProductInfo:
 
 <Menu_Principal>:
     name: 'Menu_Principal'
     GridLayout:
         cols: 1
+
         MDTopAppBar:
             title: 'Lojinha'
             anchor_title: 'center'
             right_action_items: [["magnify", lambda x: print("lupa :D")], ["cart-variant"]] 
+
         ScrollView:
             id: card_scroll
             GridLayout:
@@ -26,19 +37,27 @@ Gerenciador:
                 cols: 2
 
 <MD3Card>
-    padding: 2
+    padding: 3
     size_hint: .5, None
 
     MDRelativeLayout:
         size_hint: 1, 1
+
+        FitImage:
+            source: "./esponja.jpg"
+            size_hint: 1, 1
+
+        MDFlatButton:
+            size_hint: 1, 1
+            on_release: print(root.text)
+
         MDIconButton:
             # gotta add a dropbar to the icon
             icon: "dots-vertical"
             pos:
                 root.width - (self.width + root.padding[0] + dp(4)),root.height - (self.height + root.padding[0] + dp(4))
-        FitImage:
-            source: "./esponja.jpg"
-            size_hint: 1, 1
+            on_release: lambda x: print(":D")
+
 
         MDLabel:
             id: label
