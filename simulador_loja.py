@@ -14,9 +14,9 @@ class Gerenciador(ScreenManager):
 class Menu_Principal(Screen):
     def __init__(self, **kwargs):
         super(Menu_Principal, self).__init__(**kwargs)
-        Clock.schedule_once(self.test)
+        Clock.schedule_once(self.gen_cards)
 
-    def test(self, dt):
+    def gen_cards(self, dt):
         default_bg_color = "#cccccc"
         propriedades = {
                 "ncards": 10
@@ -37,7 +37,6 @@ class Menu_Principal(Screen):
     pass
 
 class MD3Card(MDCard, RoundedRectangularElevationBehavior):
-    '''Implements a material design v3 card.'''
     text = StringProperty()
 
 class Simulador_loja(App):
