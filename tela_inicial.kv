@@ -37,36 +37,35 @@ Gerenciador:
                 id: cards
                 size_hint: 1, None
                 height: self.minimum_height
-                spacing: 5
+                spacing: 0
                 padding: 1
-                cols: 2
+                cols: 1
 
 <MD3Card>
-    padding: 3
+    padding: 1
     size_hint: .5, None
+    radius: 0
+    ripple_behavior: True
 
-    MDRelativeLayout:
+    MDBoxLayout:
         size_hint: 1, 1
 
         FitImage:
-            source: "./src/cards/esponja.jpg"
+            source: "./src/cards/pict.jpg"
             size_hint: 1, 1
+        
+        
+        MDLabel:
+            text: 'Nome do produto'
+            text_size: self.width, None
+            height: self.texture_size[1]
+            pos_hint: {"center_y": .85}
 
-        MDFlatButton:
-            size_hint: 1, 1
-            on_release: print(root.text)
-
-        MDIconButton:
-            # gotta add a dropbar to the icon
-            icon: "dots-vertical"
-            pos:
-                root.width - (self.width + root.padding[0] + dp(4)),root.height - (self.height + root.padding[0] + dp(4))
-            on_release: lambda x: print(":D")
 
 
         MDLabel:
             id: label
-            text: root.text
+            text: "Vendedor"
             adaptive_size: True
             color: .2, .2, .2, .8
 
