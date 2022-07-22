@@ -3,7 +3,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.properties import StringProperty
-from kivymd.uix.behaviors import RoundedRectangularElevationBehavior
+from kivymd.uix.behaviors import RectangularElevationBehavior
 from kivymd.uix.card import MDCard
 from kivy.clock import Clock
 
@@ -39,7 +39,7 @@ class Menu_Principal(Screen):
         self.parent.current = "tela2"
     pass
 
-class MD3Card(MDCard, RoundedRectangularElevationBehavior):
+class MD3Card(MDCard, RectangularElevationBehavior):
     text = StringProperty()
 
 class Simulador_loja(App):
