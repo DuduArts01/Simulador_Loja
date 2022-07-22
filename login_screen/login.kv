@@ -1,0 +1,35 @@
+<Login>:
+    name: "login_screen"
+
+    StackLayout:
+        orientation: "tb-lr"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint_y: .75
+            spacing: 20
+
+            Widget:
+            MDLabel:
+                text: "Login"
+                font_style: "H3"
+                halign: "center"
+
+            Widget:
+
+            MDTextField:
+                size_hint: .75, None
+                hint_text: "Username"
+                pos_hint: {"center_x": .5}
+            
+            MDTextField:
+                size_hint: .75, None
+                hint_text: "Password"
+                pos_hint: {"center_x": .5}
+
+            Widget:
+
+            MDRaisedButton:
+                text: "Login"
+                pos_hint: {"center_x": .5}
+ 
