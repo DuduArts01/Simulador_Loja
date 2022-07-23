@@ -34,9 +34,10 @@ class Menu_Principal(Screen):
                 )
             )
 
-    def mudar_tela(self):
+    def mudar_tela(self, tela):
         self.parent.transition.direction = 'left'
-        self.parent.current = "tela2"
+        self.parent.current = tela
+
     pass
 
 class MD3Card(MDCard, RectangularElevationBehavior):

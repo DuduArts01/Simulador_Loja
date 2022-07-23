@@ -1,11 +1,12 @@
 #: include tela2.kv
 #: include ./produto/product_screen.kv
 #: include ./login_screen/login.kv
+#: include ./shopping_cart/shopping_cart.kv
 
 #: import Menu tela2.Menu
 #: import ProductInfo produto.product_screen.ProductInfo
 #: import Login login_screen.login.Login
-
+#: import Shopping_Cart shopping_cart.shopping_cart.Shopping_Cart
 Gerenciador:
 
     # Simulador_loja.py / tela_inicial.kv
@@ -20,16 +21,21 @@ Gerenciador:
     # login.py/kv    
     Login:
 
+    # shopping_cart.py/kv
+    Shopping_Cart:
+
+
 <Menu_Principal>:
     name: 'Menu_Principal'
     GridLayout:
         cols: 1
-
+ 
         MDTopAppBar:
             title: 'Lojinha'
             anchor_title: 'center'
             left_action_items: [["account", lambda x: root.open_login()]] 
-            right_action_items: [["magnify", lambda x: print("lupa :D")], ["cart-variant"]] 
+            right_action_items: [["magnify", lambda x: print("lupa :D")], ["cart-variant", lambda x: root.mudar_tela("shopping_cart_screen")]] 
+               
 
         ScrollView:
             id: card_scroll
