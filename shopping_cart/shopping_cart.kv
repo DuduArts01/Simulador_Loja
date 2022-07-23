@@ -1,46 +1,53 @@
 <Shopping_Cart>:
-    name: "shopping_cart_screen"
+    name: "Shopping Cart"
 
-    MDBoxLayout:
-        orientation: "vertical"
+    GridLayout:
+        cols: 1
 
         MDTopAppBar:
+            id: shop_bar
             title: "Shopping Cart"
             md_bg_color: .6, .0, .0, 1
             halign: "center"
-            
+            right_action_items: [["checkbox-multiple-outline", lambda x: root.select_all()]]
 
         ScrollView:
-            MDBoxLayout:
-                orientation: 'vertical'
-                halign: "center"
-                Label:
-                    text: "content"
-                
+            id: items_scroll
+            GridLayout:
+                id: cart_layout
+                cols: 1
+                size_hint: 1, None
+                height: self.minimum_height
+
+<ShoppingItems>
+    id: cart_item
+    padding: 1
+    size_hint: .5, None
+    radius: 1
+    on_release: root.select_mode(self.selected)
+    selected: False
+
+    MDBoxLayout:
+        size_hint: 1, 1
+
+        FitImage:
+            source: "./src/cards/aaaa.png"
+            size_hint: 1, 1
+        
+        
+        MDLabel:
+            text: 'Nome do produto'
+            text_size: self.width, None
+            height: self.texture_size[1]
+            pos_hint: {"center_y": .85}
 
 
-                MDBottomNavigation:
-                    panel_color: .6, .0, .0, 1
-                    #MDCheckbox:
-                            #size_hint: None, None
-                            #size: "48dp", "48dp"
-                            #pos_hint: {"center_x": .0,"center_y": .5}
-                    
 
-                    MDBottomNavigationItem
-                        
-                        text: 'Python'
-                        icon: 'language-python'
-
-                        MDLabel:
-                            text: 'Python'
-                                      
-                        
+        MDLabel:
+            id: label
+            text: "Vendedor"
+            adaptive_size: True
+            color: .2, .2, .2, .8
 
 
-                
-                
-                
-                    
-                
-            
+
