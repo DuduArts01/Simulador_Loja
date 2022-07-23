@@ -7,6 +7,7 @@
 #: import ProductInfo produto.product_screen.ProductInfo
 #: import Login login_screen.login.Login
 #: import Shopping_Cart shopping_cart.shopping_cart.Shopping_Cart
+#: import MD3Card custom_widgets.widgets.MD3Card
 Gerenciador:
 
     # Simulador_loja.py / tela_inicial.kv
@@ -34,7 +35,7 @@ Gerenciador:
             title: 'Lojinha'
             anchor_title: 'center'
             left_action_items: [["account", lambda x: root.open_login()]] 
-            right_action_items: [["magnify", lambda x: print("lupa :D")], ["cart-variant", lambda x: root.mudar_tela("shopping_cart_screen")]] 
+            right_action_items: [["magnify", lambda x: print("lupa :D")], ["cart-variant", lambda x: root.open_cart()]] 
                
 
         ScrollView:
@@ -51,13 +52,12 @@ Gerenciador:
     padding: 1
     size_hint: .5, None
     radius: 0
-    ripple_behavior: True
 
     MDBoxLayout:
         size_hint: 1, 1
 
         FitImage:
-            source: "./src/cards/pict.jpg"
+            source: "./src/cards/aaaa.png"
             size_hint: 1, 1
         
         
@@ -74,5 +74,6 @@ Gerenciador:
             text: "Vendedor"
             adaptive_size: True
             color: .2, .2, .2, .8
+
 
   
